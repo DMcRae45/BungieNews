@@ -6,6 +6,7 @@
     Date: 13-Oct-2018
 
 */
+session_start();
 ?>
 <html>
 <head>
@@ -41,6 +42,11 @@
         </form>
     </div>
 </div>
+<footer>
 <?php
-    include_once 'Includes/footer.php';
+    include_once 'Include/footer.php';
 ?>
+</footer>
+    <?php require 'Includes/bootstrapScript.php'; ?>
+</body>
+</html>

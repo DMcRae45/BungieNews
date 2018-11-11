@@ -8,8 +8,8 @@
     Date: 08-Oct-2018
 
  */
-include "Includes/dbConnection.php";
 session_start();
+include "Includes/dbConnection.php";
 
 // Sanitize User Input for Username
 $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
@@ -19,7 +19,7 @@ $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
 $salt = "saltyPasswordSalt"; // Salt for Password Encryption
 $password = $password.$salt; // Concatenate Sanitized Password and the Password Salt
-$passwordHash = md5($password); // Hash password using "md5"
+$password = md5($password); // Hash password using "md5"
 
 // Sql SELECT Statement for finding mathcing Username AND Password
 $sql = "SELECT * FROM NP_USERS WHERE Username = :username
@@ -29,7 +29,7 @@ $sql = "SELECT * FROM NP_USERS WHERE Username = :username
 $stmt = $pdo->prepare($sql);
 
 // Execute the Sql statement with the PasswordHash
-$success = $stmt->execute(['username' => $username, 'password' => $passwordHash]);
+$success = $stmt->execute(['username' => $username, 'password' => $password]);
 
 // if 1 or more rows effected (Log in Successfull)
 if($success && $stmt->rowCount() > 0)
@@ -39,8 +39,7 @@ if($success && $stmt->rowCount() > 0)
     $_SESSION['username'] = $username; // Set User Session to the users Username
     
     header ('location: ../index.php'); // Redirect user to index page
-    
-    
+      
 }
 else // if 0 Rows were effected (log in Failed)
 {
@@ -49,4 +48,4 @@ else // if 0 Rows were effected (log in Failed)
     
     header ('location: index.php'); // Redirect user to index page
 }
-//var_dump($_SESSION);
+var_dump($_SESSION);

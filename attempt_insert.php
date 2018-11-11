@@ -8,7 +8,7 @@
     Date: 13-Oct-2018
 
  */
-
+session_start();
 include_once 'Includes/dbConnection.php';
 
 $headline = $_POST['headline'];
@@ -36,17 +36,14 @@ if($count > 0)
     $message = "Insert Successful";
     echo "<script type='text/javascript'>alert('$message');</script>";
 
-    header ('location: ../insertArticle.php');
+    header ('location: insertArticle.php');
 }
 else
 {
     $message = "Insert Failed";
     echo "<script type='text/javascript'>alert('$message');</script>";
     
-    header ('location: ../insertArticle.php');
+    header ('location: insertArticle.php');
 }
-
-
-
 
 ?>

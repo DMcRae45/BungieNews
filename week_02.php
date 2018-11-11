@@ -18,21 +18,32 @@
     
     
     
-    <div class="container">
+    <div class="container text-center">
         <div class="page-header">
-            <h1> Week 01 Critique</h1>
+            <h1> Week 02 Critique</h1>
         </div>
         
-        <div class="content">
-            <p>1.	Draw an E/R diagram to show this data
-2.	Develop a set of suitable relations for the implementation of :
-a.	The articles
-b.	Users of the site
-c.	Comments
-3.	For each attribute in your relations define the format; how long the field will be and what format the data is in.
-
-Make sure this is written out and kept secure as this will form the basis of the database in your coursework.
-</p>
+        <div class="container text-center">
+            <h4>Bungie News ERD</h4>
+            <img class="text-center" src="Images/ERD.JPG" alt="ERD DIAGRAM HERE">
+            <p>
+                The ERD for this website is based on using 3 Tables or Classes.
+                
+                These Classes are called; </br>
+                NP_Users - Newspaper Users. </br>
+                NP_ARTICLES - Newspaper Articles </br>
+                NP_Comments - Newspaper comments </br>
+                
+                The Users Class/Table Attributes consist of; </br>
+                
+                User_ID
+                Admin_Status
+                First_Name
+                Last_Name
+                Email
+                Mobile
+                
+            </p>
         </div>
     </div>   
                

@@ -28,63 +28,34 @@
 
         <li class="nav-item dropdown">
             
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+            <?php
+                if(!isset($_SESSION['LoggedIn']))
+                {
+                    echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>';
+                }
+                if(isset($_SESSION['LoggedIn']))
+                {
+                    echo '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">'.$_SESSION['username'].'</a>';
+                }
+            ?>  
             
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="login.php">Login</a>
-                    
-                <div class="dropdown-divider"></div>  <!-- divider between menu items -->
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
-                    <a class="dropdown-item" href="registerAccount.php">Register</a>
-                    
-                    <a class="dropdown-item" href="insertArticle.php">Insert</a>
+            <?php
+                if(!isset($_SESSION['LoggedIn']))
+                {
+                        echo '<a class="dropdown-item" href="login.php">Login</a>';
+                        echo '<div class="dropdown-divider"></div>';  // divider between menu items 
+                        echo '<a class="dropdown-item" href="registerAccount.php">Register</a>';
+                }
+                if(isset($_SESSION['LoggedIn']))
+                {
+                        echo '<a class="dropdown-item" href="#">OPTION ONE</a>';
+                        echo '<a class="dropdown-item" href="attempt_logout.php">LogOut</a>';
+                }
+            ?>
             </div>
         </li>    
     </ul>
 </div>
 </nav>
-
-
-<!--if(!isset($_SESSION['LoggedIn']))
-{
-
-echo ' <nav class="navbar navbar-expand-lg navbar-light bg-light"> ';
-    echo ' <a class="navbar-brand" href="#">Navigation</a> ';
-    echo ' <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> ';
-        echo ' <span class="navbar-toggler-icon"></span> ';
-    echo ' </button> ';
-
-
-    echo '<div class="collapse navbar-collapse" id="navbarSupportedContent"> ';
-
-        echo ' <ul class="navbar-nav mr-auto"> ';
-
-            echo ' <li class="nav-item active"> ';
-                echo ' <a class="nav-link" href="index.php">Articles <span class="sr-only">(current)</span></a> ';
-            echo ' </li> ';
-
-            echo ' <li class="nav-item"> ';
-                echo ' <a class="nav-link" href="critiqueMenu.php">Critiques</a> ';
-            echo ' </li> ';
-
-            echo ' <li class="nav-item dropdown"> ';
-
-                echo ' <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a> ';
-
-                echo ' <div class="dropdown-menu" aria-labelledby="navbarDropdown"> ';
-                    echo ' <a class="dropdown-item" href="login.php">Login</a> ';
-
-                echo ' <div class="dropdown-divider"></div>   divider between menu items  ';
-
-                    echo ' <a class="dropdown-item" href="registerAccount.php">Register</a> ';
-                echo ' </div> ';
-            echo ' </li> ';
-        echo ' </ul> ';
-    echo '</div> ';
-echo '</nav> ';
-
-}
-elseif ($_SESSION['LoggedIn'])
-{
-    
-}-->

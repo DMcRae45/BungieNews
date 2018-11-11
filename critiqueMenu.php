@@ -10,11 +10,12 @@
     Date: 15-Sep-2018
 
 */
+session_start();
 ?>
 <html>
 <head>
     <?php 
-        include_once 'Includes/dbConnection.php';
+        //include_once 'Includes/dbConnection.php';
         require 'Includes/header.php';
     ?>
 </head>
@@ -22,16 +23,16 @@
     
     <div class="container">
         <div class="page-header">
-            <h1> Critique</h1>
+            <h1>Critique</h1>
         </div>
        
- <section class="inner container">
+ <div class="container">
            
     <!-- menu -->
     <div class="Critique-menu">
         <ul>
-            <li><a href="Critiques/week_01.php">week_01</a></li>
-            <li><a href="Critiques/week_02.php">week_02</a></li>
+            <li><a href="week_01.php">week_01</a></li>
+            <li><a href="week_02.php">week_02</a></li>
             <li><a href="Critiques/week_03.php">week_03</a></li>
             <li><a href="Critiques/week_04.php">week_04</a></li>
             <li><a href="Critiques/week_05.php">week_05</a></li>
@@ -40,7 +41,7 @@
     </div>
     <!-- menu --> 
     
-</section>
+</div>
 </div><!-- end of container-->
     
     <footer>
